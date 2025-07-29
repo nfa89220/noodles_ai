@@ -429,11 +429,11 @@ contactForm.addEventListener('submit', async (e) => {
 
     // 👉 Mappa i dati ai campi del tuo Supabase
     const payload = {
-        nome_cliente: data.nome,
-        settore: data.settore,
-        budget: parseInt(data.budget) || null,
-        descrizione: data.descrizione,
-        contatto: data.contatto
+        nome_cliente_organizzazione: data.nome,
+        budget: parseInt(data.budget),
+        descrizione_richiesta_cliente: data.descrizione,
+        contatto_cliente: data.contatto,
+	    settore: data.settore
     };
 
     try {
