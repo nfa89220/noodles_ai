@@ -286,18 +286,11 @@
             <p id="footer-year" class="text-sm">&copy; 2024 N∞dles.ai. Tutti i diritti riservati.</p>
         </div>
     </footer>
-  
-	
+    <div id="popup-message" class="fixed inset-0 flex items-center justify-center z-50 pointer-events-none">
+  <div id="popup-content" class="opacity-0 scale-95 transition-all duration-300 pointer-events-auto px-6 py-4 text-center text-lg text-white bg-black/80 rounded-xl shadow-xl max-w-md w-full">
 
-<div id="popup-message" class="fixed inset-0 flex items-center justify-center z-50 pointer-events-none opacity-0">
-  <div class="rounded-xl p-[2px] bg-gradient-to-r from-[#2FA7E3] to-[#2FA7E3]/50">
-    <div id="popup-content" class="opacity-0 scale-95 transition-all duration-300 pointer-events-auto px-6 py-4 text-center text-lg text-white bg-primary-dark/80 rounded-xl shadow-xl max-w-md w-full">
-      <!-- contenuto -->
-    </div>
   </div>
 </div>
-
-
 
     <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -445,11 +438,6 @@ const showPopupMessage = (message, type = 'success') => {
     }, 4500);
 };
 
-const popup = document.getElementById('popup-message');
-popup.classList.remove('opacity-0', 'pointer-events-none');
-
-const content = document.getElementById('popup-content');
-content.classList.remove('opacity-0', 'scale-95');
 
 
         // --- CONTACT FORM ---
