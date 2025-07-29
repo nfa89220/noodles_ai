@@ -28,6 +28,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
+#popup-message.show {
+  opacity: 1;
+}
+
+#popup-message.hide {
+  opacity: 0;
+}
+
         /* Custom scrollbar for webkit browsers */
         ::-webkit-scrollbar {
             width: 12px;
@@ -287,9 +295,8 @@
         </div>
     </footer>
     <div id="popup-message" class="fixed inset-0 flex items-center justify-center z-50 pointer-events-none">
-  <div id="popup-content" class="opacity-0 scale-95 transition-all duration-300 pointer-events-auto px-6 py-4 text-center text-lg text-white bg-black/80 rounded-xl shadow-xl max-w-md w-full">
+  <div id="popup-message" class="hidden fixed bottom-6 left-1/2 transform -translate-x-1/2 px-6 py-3 rounded-xl shadow-lg text-sm font-medium opacity-0 transition-all duration-500 z-50 text-primary-light-text dark:text-white bg-white/90 dark:bg-white/10 backdrop-blur-md border border-primary-light-text/10 dark:border-white/10"></div>
 
-  </div>
 </div>
 
     <script>
@@ -418,24 +425,23 @@
         window.addEventListener('scroll', animateShapes, { passive: true });
 
 const showPopupMessage = (message, type = 'success') => {
-    const popup = document.getElementById('popup-message');
-    const content = document.getElementById('popup-content');
+   const popup = document.getElementById('popup-message');
+    popup.textContent = text;
 
-    // Colore testo dinamico se vuoi
-    content.classList.remove('text-green-400', 'text-red-400');
-    content.classList.add(type === 'success' ? 'text-accent-blue' : 'text-red-400');
+    // Colori di contorno (optional)
+    popup.classList.remove('border-green-400', 'border-red-400');
+    popup.classList.add(type === 'error' ? 'border-red-400' : 'border-green-400');
 
-    content.textContent = message;
+    // Mostra
+    popup.classList.remove('hidden', 'hide');
+    popup.classList.add('show');
 
-    // Mostra popup
-    content.classList.remove('opacity-0', 'scale-95');
-    content.classList.add('opacity-100', 'scale-100');
-
-    // Nasconde dopo 4.5s
+    // Nasconde dopo 4s
     setTimeout(() => {
-        content.classList.remove('opacity-100', 'scale-100');
-        content.classList.add('opacity-0', 'scale-95');
-    }, 4500);
+        popup.classList.remove('show');
+        popup.classList.add('hide');
+        setTimeout(() => popup.classList.add('hidden'), 500);
+    }, 4000);
 };
 
 
