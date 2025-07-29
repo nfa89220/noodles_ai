@@ -287,7 +287,7 @@
         </div>
     </footer>
     <div id="popup-message" class="fixed inset-0 flex items-center justify-center z-50 pointer-events-none">
-  <div id="popup-content" class="transition-all duration-300 pointer-events-auto px-6 py-4 text-center text-lg text-white bg-primary-dark/80 rounded-xl shadow-xl max-w-md w-full text-accent-blue opacity-0 scale-95">
+  <div id="popup-content" class="w-24 h-24 border   border-solid border-indigo-600 bg-indigo-100 transition-all duration-300 pointer-events-auto px-6 py-4 text-center text-lg text-white bg-primary-dark/80 rounded-xl shadow-xl max-w-md w-full text-accent-blue opacity-0 scale-95">
 
   </div>
 </div>
@@ -422,7 +422,6 @@ const showPopupMessage = (message, type = 'success') => {
     const popup = document.getElementById('popup-message');
     const content = document.getElementById('popup-content');
 
-    // Colore testo dinamico se vuoi
     content.classList.remove('text-green-400', 'text-red-400');
     content.classList.add(type === 'success' ? 'text-accent-blue' : 'text-red-400');
 
