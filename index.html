@@ -298,6 +298,7 @@
 </div>
 
 
+
     <script>
     document.addEventListener('DOMContentLoaded', () => {
     
@@ -444,6 +445,11 @@ const showPopupMessage = (message, type = 'success') => {
     }, 4500);
 };
 
+const popup = document.getElementById('popup-message');
+popup.classList.remove('opacity-0', 'pointer-events-none');
+
+const content = document.getElementById('popup-content');
+content.classList.remove('opacity-0', 'scale-95');
 
 
         // --- CONTACT FORM ---
